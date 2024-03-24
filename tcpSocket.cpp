@@ -3,6 +3,10 @@
 //#define CLOCKS_PER_SEC((clock_t)1000)
 mutex m;
 
+SOCKET Socket::GetClientSock() {
+	return clientSock;
+}
+
 void Socket::SEND_FILE(string file) {
 	int i = 0;
 	char Temporary_file[MAXBYTE] = { 0 };

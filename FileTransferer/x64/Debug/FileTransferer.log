@@ -1,26 +1,11 @@
-﻿  port.cpp
+﻿  tcpSocket.cpp
 E:\AInformation\m_Cpp\FileTransferer\port.h(12,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
-  (编译源文件“port.cpp”)
+  (编译源文件“tcpSocket.cpp”)
   E:\AInformation\m_Cpp\FileTransferer\port.h(12,1):
   之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
   
-E:\AInformation\m_Cpp\FileTransferer\port.cpp(16,28): warning C4244: “=”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\port.cpp(22,26): warning C4244: “=”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
-  server.cpp
-E:\AInformation\m_Cpp\FileTransferer\port.h(12,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
-  (编译源文件“server.cpp”)
-  E:\AInformation\m_Cpp\FileTransferer\port.h(12,1):
-  之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
-  
-E:\AInformation\m_Cpp\FileTransferer\server.cpp(13,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  tcpServer.cpp
-E:\AInformation\m_Cpp\FileTransferer\port.h(12,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
-  (编译源文件“tcpServer.cpp”)
-  E:\AInformation\m_Cpp\FileTransferer\port.h(12,1):
-  之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
-  
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(12,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(63,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(64,19): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  正在生成代码...
+E:\AInformation\m_Cpp\FileTransferer\tcpSocket.cpp(15,41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\tcpSocket.cpp(44,71): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\tcpSocket.cpp(52,61): warning C4244: “参数”: 从“unsigned __int64”转换到“int”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\tcpSocket.cpp(68,42): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   FileTransferer.vcxproj -> E:\AInformation\m_Cpp\FileTransferer\x64\Debug\FileTransferer.exe

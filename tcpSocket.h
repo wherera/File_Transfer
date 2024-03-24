@@ -11,6 +11,7 @@ private:
 	string ip;
 	char wb_file[MAXBYTE];
 public:
+	SOCKET GetClientSock();
 	bool TARGE_FILE(string ip);
 	void SEND_FILE(string file);
 	static DWORD WINAPI transmmit(const LPVOID arg);

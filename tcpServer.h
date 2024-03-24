@@ -12,7 +12,7 @@ private:
 	char wb_file[MAXBYTE];
 	char filename[MAXBYTE];
 public:
-
+    SOCKET GetClientSock();
     //绑定和监听
     void TARGE_FILE();
     //返回文件的类型

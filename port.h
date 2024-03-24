@@ -14,11 +14,7 @@ line:%d\n", errMsg, WSAGetLastError(), __LINE__)
 
 using namespace std;
 class port {
-private:
-	SOCKET clientSock;
-
 public:
-	SOCKET GetClientSock();
 	void LocalTime();
 	double StartTime();
 	double EndTime();

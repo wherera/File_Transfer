@@ -1,9 +1,5 @@
 #include "port.h"
 
-SOCKET port::GetClientSock() {
-	return clientSock;
-}
-
 void port::LocalTime() {
 	SYSTEMTIME time;
 	GetLocalTime(&time);

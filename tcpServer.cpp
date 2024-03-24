@@ -3,6 +3,10 @@
 #define MAXBYTES 300*1024
 mutex n;
 
+SOCKET Server::GetClientSock() {
+	return clientSock;
+}
+
 string Server::TYPE_file() {
 	string end_file = "";
 	char Temporary[1024] = { 0 };
