@@ -37,9 +37,6 @@ DWORD WINAPI Socket::transmmit(const LPVOID arg) {
 	}
 	else {
 		unsigned long long g_fileSize;
-		//fseek(fp, 0, SEEK_END);//将读取的文件指针放到文件末尾
-		//g_fileSize = ftell(fp);
-		//fseek(fp, 0, SEEK_SET);//指针移到文件开头
 		struct _stat64 st;
 		_stat64(file_name, &st);
 		g_fileSize = st.st_size;

@@ -14,7 +14,7 @@ string Server::TYPE_file() {
 	int index_last = 0;
 	int ret = recv(GetClientSock(), file, 100, 0);
 	for (int i = strlen(file) - 1; i >= 0; i--) {
-		if (file[i] == '\\') {
+		if (file[i] == '\\' || file[i] == '/') {
 			index_last = i;
 			break;
 		}
