@@ -1,12 +1,26 @@
-﻿  tcpServer.cpp
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.h(13,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
-  (编译源文件“tcpServer.cpp”)
-  E:\AInformation\m_Cpp\FileTransferer\tcpServer.h(13,1):
+﻿  port.cpp
+E:\AInformation\m_Cpp\FileTransferer\port.h(12,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+  (编译源文件“port.cpp”)
+  E:\AInformation\m_Cpp\FileTransferer\port.h(12,1):
   之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
   
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(14,29): warning C4244: “=”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(20,27): warning C4244: “=”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(59,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(110,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(111,19): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\port.cpp(16,28): warning C4244: “=”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\port.cpp(22,26): warning C4244: “=”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+  server.cpp
+E:\AInformation\m_Cpp\FileTransferer\port.h(12,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+  (编译源文件“server.cpp”)
+  E:\AInformation\m_Cpp\FileTransferer\port.h(12,1):
+  之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
+  
+E:\AInformation\m_Cpp\FileTransferer\server.cpp(13,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  tcpServer.cpp
+E:\AInformation\m_Cpp\FileTransferer\port.h(12,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+  (编译源文件“tcpServer.cpp”)
+  E:\AInformation\m_Cpp\FileTransferer\port.h(12,1):
+  之前在命令行上声明的“_CRT_SECURE_NO_WARNINGS”
+  
+E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(12,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(63,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\AInformation\m_Cpp\FileTransferer\tcpServer.cpp(64,19): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
   FileTransferer.vcxproj -> E:\AInformation\m_Cpp\FileTransferer\x64\Debug\FileTransferer.exe

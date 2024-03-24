@@ -2,60 +2,13 @@
 #include "tcpServer.h"
 #define MAXBYTES 300*1024
 mutex n;
-//获取当前日期
-void Server::OBTION_TIME() {
-	SYSTEMTIME start; //windows.h中  
-	GetLocalTime(&start);//time.h的tm结构体一样的效果  
-	cout << start.wYear << "/" << start.wMonth << "/" << start.wDay << " " << start.wHour << ":" << start.wMinute << ":" << start.wSecond << endl;
-}
-//获取开始时间
-double Server::START_TIME() {
-	DWORD start_time;
-	start_time = GetTickCount64();
-	return (double)start_time;
-}
-//获取结束时间
-double Server::END_TIME() {
-	DWORD end_time;
-	end_time = GetTickCount64();
-	return double(end_time);
-}
-//获取文件大小
-void  Server::getByteSize(unsigned long long size) {
-	unsigned long long rest = 0;
-	if (size < 1024) {
-		cout << size << "B" << endl;
-		return;
-	}
-	else {
-		size /= 1024;
-	}
-	if (size < 1024) {
-		cout << size << "KB" << endl;
-		return;
-	}
-	else {
-		rest = size % 1024;
-		size /= 1024;
-	}
-	if (size < 1024) {
-		size *= 100;
-		cout << (size / 100) << "." << (rest * 100 / 1024 % 100) << "MB" << endl;
 
-		return;
-	}
-	else {
-		size = size * 100 / 1024;
-		cout << (size / 100) << "." << (size % 100) << "GB" << endl;
-		return;
-	}
-}
 string Server::TYPE_file() {
 	string end_file = "";
 	char Temporary[1024] = { 0 };
 	char file[1024] = { 0 };
 	int index_last = 0;
-	int ret = recv(GetclientSock(), file, 100, 0);
+	int ret = recv(GetClientSock(), file, 100, 0);
 	for (int i = strlen(file) - 1; i >= 0; i--) {
 		if (file[i] == '\\') {
 			index_last = i;
@@ -118,9 +71,7 @@ void Server::REVER_file(string file, string filename) {
 	}
 	wb_file[i] = '\0';
 }
-SOCKET Server::GetclientSock() {
-	return clientSock;
-}
+
 int Server::MAIN_Server() {
 	char Buffer[MAXBYTES] = { 0 }; // 文件缓冲区
 	char wb_files[MAXBYTE] = { 0 };
@@ -136,7 +87,7 @@ int Server::MAIN_Server() {
 	}
 	else {
 		cout << "接收文件时间: ";
-		OBTION_TIME();
+		LocalTime();
 		unsigned long long g_fileSize = 0;
 		char rev_buffer[MAXBYTES] = { 0 };//接收文件的长度
 		int rev_len = recv(clientSock, rev_buffer, MAXBYTE, 0);
@@ -146,7 +97,7 @@ int Server::MAIN_Server() {
 				g_fileSize = g_fileSize * 10 + ((unsigned long long)rev_buffer[i] - 48);
 			}
 		}
-		double start_time = START_TIME();
+		double start_time = StartTime();
 		memset(&Buffer, 0, MAXBYTES);
 		unsigned long long  size = 0;
 		//当成功接收文件（size > 0）时，判断写入的时候文件长度是否等于接收的长度
@@ -188,10 +139,10 @@ int Server::MAIN_Server() {
 		cout << "接收完成" << endl;
 		cout << "接受文件大小: ";
 		len_file = (unsigned long long)len_file;
-		getByteSize(len_file);
+		GetByteSize(len_file);
 		cout << "文件结束接受时间: ";
-		OBTION_TIME();
-		double end_time = END_TIME();
+		LocalTime();
+		double end_time = EndTime();
 		double currentTime = 0;
 		currentTime = (double)(end_time - start_time) / CLOCKS_PER_SEC;
 		cout << "接收文件耗时: " << currentTime << "s" << endl;
@@ -200,7 +151,7 @@ int Server::MAIN_Server() {
 	return 0;
 
 }
-void Server::CLEAR() {
+void Server::Clear() {
 	//关闭socket，释放winsock
 	closesocket(serverSock);
 	////关闭网络库 

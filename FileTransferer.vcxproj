@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="port.h" />
     <ClInclude Include="tcpServer.h" />
     <ClInclude Include="tcpSocket.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp" />
+    <ClCompile Include="port.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="tcpServer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

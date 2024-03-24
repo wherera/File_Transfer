@@ -10,10 +10,10 @@ int main() {
 		cin >> wb_file;
 		string st = "ESC";
 		string end_file = ser->TYPE_file();
-		send(ser->GetclientSock(), st.c_str(), st.length(), 0);
+		send(ser->GetClientSock(), st.c_str(), st.length(), 0);
 		ser->REVER_file(wb_file, end_file);
 		ser->MAIN_Server();
 	}
-	ser->CLEAR();
+	ser->Clear();
 	return 0;
 }

@@ -19,10 +19,10 @@
 //		string file;
 //		cin >> file;
 //		socket->SEND_FILE(file);
-//		int ret = recv(socket->GetCientSock(), Tempoary, 10, 0);
+//		int ret = recv(socket->GetClientSock(), Tempoary, 10, 0);
 //		if (ret < 0) continue;
-//		socket->MAIN_SOCKET();
+//		socket->transmmit(socket);
 //	}
-//	socket->CLEAR();
+//	socket->Clear();
 //	return 0;
 //} 

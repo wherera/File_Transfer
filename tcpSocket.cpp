@@ -2,60 +2,6 @@
 #define MAXBYTES 300*1024
 //#define CLOCKS_PER_SEC((clock_t)1000)
 mutex m;
-void Socket::OBTTON_TIME() {
-	SYSTEMTIME start;
-	GetLocalTime(&start);
-	cout << start.wYear << "/" << start.wMonth << "/" << start.wDay
-		<< " " << start.wHour << ":" << start.wMinute << ":" << start.wSecond << endl;
-
-}
-
-double Socket::START_TIME() {
-	DWORD start_time;
-	start_time = GetTickCount64();
-	return double(start_time);
-}
-
-double Socket::END_TIME() {
-	DWORD end_time;
-	end_time = GetTickCount64();
-	return double(end_time);
-}
-
-SOCKET Socket::GetCientSock() {
-	return clientSock;
-}
-
-void Socket::getByteSize(unsigned long long size) {
-	unsigned long long rest = 0;
-	if (size < 1024) {
-		cout << size << "B" << endl;
-		return;
-	}
-	else {
-		size /= 1024;
-	}
-
-	if (size < 1024) {
-		cout << size << "KB" << endl;
-		return;
-	}
-	else {
-		rest = size % 1024;
-		size /= 1024;
-	}
-
-	if (size < 1024) {
-		size *= 100;
-		cout << (size / 100) << "." << (rest * 100 / 1024 % 100) << "MB" << endl;
-		return;
-	}
-	else {
-		size = size * 100 / 1024;
-		cout << (size / 100) << "." << (size % 100) << "GB" << endl;
-		return;
-	}
-}
 
 void Socket::SEND_FILE(string file) {
 	int i = 0;
@@ -97,8 +43,8 @@ DWORD WINAPI Socket::transmmit(const LPVOID arg) {
 		send_file_len = to_string(g_fileSize);
 		send(socket->clientSock, send_file_len.c_str(), send_file_len.length(), 0);
 		cout << "发送文件时间：";
-		socket->OBTTON_TIME();
-		double start_time = socket->START_TIME();
+		socket->LocalTime();
+		double start_time = socket->StartTime();
 		char Buffer[MAXBYTES] = { 0 };
 		unsigned long long size = 0;
 		unsigned long long Actual_file_len = 0;
@@ -119,14 +65,14 @@ DWORD WINAPI Socket::transmmit(const LPVOID arg) {
 			memset(&Buffer, 0, MAXBYTES);
 		}
 		const char* t = "end";
-		send(socket->clientSock, t, strlen(t), NULL);
+		send(socket->GetClientSock(), t, strlen(t), NULL);
 		cout << socket->id << "线程已成功发送" << file_name << endl;
 
 		cout << "发送文件大小：";
-		socket->getByteSize(len_file);
+		socket->GetByteSize(len_file);
 		cout << "文件发送结束时间：";
-		socket->OBTTON_TIME();
-		double end_time = socket->END_TIME();
+		socket->LocalTime();
+		double end_time = socket->EndTime();
 		double currentTime = 0;
 		currentTime = (double)(end_time - start_time) / CLOCKS_PER_SEC;
 		cout << "发送文件耗时：" << currentTime << "s" << endl;
@@ -174,7 +120,7 @@ int Socket::MAIN_SOCKET() {
 	return 0;
 }
 
-void Socket::CLEAR() {
+void Socket::Clear() {
 	closesocket(clientSock);
 	if (WSACleanup() != 0) {
 		err("WSACleanup");

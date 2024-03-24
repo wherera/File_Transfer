@@ -21,6 +21,9 @@
     <ClInclude Include="tcpServer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="port.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tcpSocket.cpp">
@@ -33,6 +36,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="port.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
