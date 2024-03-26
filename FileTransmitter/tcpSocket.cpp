@@ -162,6 +162,7 @@ bool Socket::Connect(string ipt) {
 bool Socket::IsConnect(string ipt) {
 	bool flag = Connect(ipt);
 	if (flag == true) {
+		ip = ipt;
 		return 1;
 	}
 	else {
@@ -202,6 +203,8 @@ void Socket::Listen() {
 		err("accept");
 	}
 	cout << "连接成功" << endl;
+
+	ip = inet_ntoa(clntAddr.sin_addr);
 }
 
 string Socket::GetFileName() {
@@ -324,7 +327,7 @@ void Socket::PrintIp() {
 		cout << "NULL" << endl;
 	}
 	else {
-		cout << "port:" << " " << ip << endl;
+		cout << "IP:" << " " << ip << endl;
 	}
 }
 
