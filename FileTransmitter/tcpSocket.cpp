@@ -163,12 +163,24 @@ bool Socket::Connect(string ipt) {
 }
 
 bool Socket::IsConnect() {
-	bool flag = Connect(ip);
-	if (flag == true) {
-		return 1;
+	
+	if (ip.empty()) {
+		return false;
+	}
+	const char* testMessage = "Test";
+	int result = send(clientSock, testMessage, strlen(testMessage), 0);
+
+	if (result == SOCKET_ERROR) {
+		int errorCode = WSAGetLastError();
+		if (errorCode == WSAECONNRESET || errorCode == WSAECONNABORTED || errorCode == WSAENETRESET) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	else {
-		return 0;
+		return true;
 	}
 }
 
