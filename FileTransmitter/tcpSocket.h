@@ -27,7 +27,8 @@ public:
 	double EndTime();
 	void GetByteSize(unsigned long long size);
 	SOCKET GetClientSock();
-	bool IsConnect();
+	bool SendIsConnect();
+	bool SaveIsConnect();
 	void PrintIp();
 	void ShowHelp();
 	void SendFilePath(string filePath);

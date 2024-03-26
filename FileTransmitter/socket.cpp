@@ -20,7 +20,7 @@ int main() {
 			socket->PrintIp();
 		}
 		else if (op == "send") {
-			if (socket->IsConnect()) {
+			if (socket->SendIsConnect()) {
 				string filePath;
 				cin >> filePath;
 				socket->SendFilePath(filePath);
@@ -37,7 +37,7 @@ int main() {
 			socket->Listen();
 		}
 		else if (op == "save") {
-			if (socket->IsConnect()) {
+			if (socket->SaveIsConnect()) {
 				cout << "输入保存文件路径：";
 				string folderPath;
 				cin >> folderPath;

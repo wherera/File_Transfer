@@ -162,7 +162,7 @@ bool Socket::Connect(string ipt) {
 	}
 }
 
-bool Socket::IsConnect() {
+bool Socket::SendIsConnect() {
 	
 	if (ip.empty()) {
 		return false;
@@ -179,6 +179,18 @@ bool Socket::IsConnect() {
 			return true;
 		}
 	}
+	else {
+		return true;
+	}
+}
+
+bool Socket::SaveIsConnect() {
+	if (ip.empty()) {
+		return false;
+	}
+	char Tempoary[1024] = { 0 };
+	int result = recv(clientSock, Tempoary, 10, 0);
+	if (result < 0) return false;
 	else {
 		return true;
 	}
