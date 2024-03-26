@@ -156,13 +156,15 @@ bool Socket::Connect(string ipt) {
 		err("connect");
 		return false;
 	}
-	return true;
+	else {
+		ip = ipt;
+		return true;
+	}
 }
 
-bool Socket::IsConnect(string ipt) {
-	bool flag = Connect(ipt);
+bool Socket::IsConnect() {
+	bool flag = Connect(ip);
 	if (flag == true) {
-		ip = ipt;
 		return 1;
 	}
 	else {
@@ -331,12 +333,23 @@ void Socket::PrintIp() {
 	}
 }
 
+void Socket::ShowHelp() {
+	std::cout << "Available commands:\n"
+		<< "connect [ip]   - Connect to the specified IP address.\n"
+		<< "list           - Print list of connected IP addresses.\n"
+		<< "send [file]    - Send file to connected socket.\n"
+		<< "listen         - Listen for incoming connections.\n"
+		<< "save           - Save received file.\n"
+		<< "exit           - Close socket and exit.\n"
+		<< "help           - Display this help message.\n";
+}
+
 void Socket::Clear() {
 	closesocket(clientSock);
 	if (WSACleanup() != 0) {
 		err("WSACleanup");
 		return;
 	}
-	cout << "客户端连接已关闭。" << endl;
+	cout << "连接已关闭。" << endl;
 	system("pause");
 }

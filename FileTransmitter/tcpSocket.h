@@ -27,8 +27,9 @@ public:
 	double EndTime();
 	void GetByteSize(unsigned long long size);
 	SOCKET GetClientSock();
-	bool IsConnect(string ipt);
+	bool IsConnect();
 	void PrintIp();
+	void ShowHelp();
 	void SendFilePath(string filePath);
 	static DWORD WINAPI Transmmit(const LPVOID arg);
 	bool Connect(string ipt);
